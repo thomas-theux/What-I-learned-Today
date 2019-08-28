@@ -7,10 +7,21 @@
     </head>
 
     <body>
-        <input type="text" id="myText" value="">
-        <button onclick="checkTexts();">Add text</button>
+        <input id="myText" type="text" value="">
+        <button id="addBtn" onclick="checkTexts();">Add text</button>
 
-        <p id="enteredText"></p>
+        <p id="displayedLines"></p>
+
+        <!-- For testing purposes only – can be deleted for release -->
+        <script>
+            var input = document.getElementById("myText");
+            input.addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("addBtn").click();
+                }
+            });
+        </script>
     </body>
 
 </html>

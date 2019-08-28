@@ -20,16 +20,34 @@ function checkTexts() {
     } else {
         alert("Please enter a line");
     }
+    
+    displayLines();
+
+    // Only for testing – should be increased automatically every day
+    currentIndex++;
 }
 
 
 function addNewLine() {
-    document.getElementById("enteredText").innerHTML = newText;
     textsArr.push(newText);
 }
 
 
 function replaceLine() {
-    document.getElementById("enteredText").innerHTML = newText;
     textsArr[currentIndex] = newText;
+}
+
+
+function displayLines() {
+    var concatedLines = "";
+    var currentLine = "";
+    var allLines = "";
+
+    for (i = 0; i < textsArr.length; i++) {
+        currentLine = textsArr[i] + "<br>";
+        allLines = concatedLines.concat(currentLine);
+        concatedLines = allLines;
+    }
+    
+    document.getElementById("displayedLines").innerHTML = allLines;
 }
